@@ -1,10 +1,10 @@
 /*
 Title: Java Warmup
-Author: Jorge Favela
+Author: Jorge Favela6
 */
 import java.util.Scanner;
 
-class Sqr{
+class JavaWU{
 
     //Attributes------------------------------------------------------------------------------------------
     String edgeAdj="";
@@ -12,118 +12,56 @@ class Sqr{
     String notAdj="";
 
     //Constructors---------------------------------------------------------------------------------------- 
-    Sqr(){}
+    JavaWU(){}
 
-    Sqr(String col, int row, int len, String s){ //creates Sqr object from a letter and a number
-        String e = eAdj(ltr2num(col),row);
-        String c = cAdj(ltr2num(col),row);
+    JavaWU(String row, int col){ //creates JavaWU object from a letter and a number
+        String e = eAdj(ltr2num(row),col);
+        String c = cAdj(ltr2num(row),col);
         String n = nAdj(e+c);
-        switch(len){
-            case 2:
-                for(int i=0; i<e.length(); i=i+2){
-                    this.edgeAdj =this.edgeAdj + "("+num2ltr(e.substring(i,i+1))+e.substring(i+1,i+2)+") ";
-                }
-                for(int i=0; i<c.length(); i=i+2){
-                    this.cornerAdj =this.cornerAdj + "("+num2ltr(c.substring(i,i+1))+c.substring(i+1,i+2)+") ";
-                }
-                for(int i=0; i<n.length(); i=i+2){
-                    this.notAdj =this.notAdj + "("+num2ltr(n.substring(i,i+1))+n.substring(i+1,i+2)+") ";
-                }
-                break;
 
-            case 3:
-                for(int i=0; i<e.length(); i=i+2){
-                    this.edgeAdj =this.edgeAdj + "("+num2ltr(e.substring(i,i+1))+s+e.substring(i+1,i+2)+") ";
-                }
-                for(int i=0; i<c.length(); i=i+2){
-                    this.cornerAdj =this.cornerAdj + "("+num2ltr(c.substring(i,i+1))+s+c.substring(i+1,i+2)+") ";
-                }
-                for(int i=0; i<n.length(); i=i+2){
-                    this.notAdj =this.notAdj + "("+num2ltr(n.substring(i,i+1))+s+n.substring(i+1,i+2)+") ";
-                }
-                break;
-
-            case 5:
-                //Formats the 3 resulting strings of coordinates to look nicer
-                for(int i=0; i<e.length(); i=i+2){
-                    this.edgeAdj =this.edgeAdj + "("+num2ltr(e.substring(i,i+1))+","+e.substring(i+1,i+2)+") ";
-                }
-                for(int i=0; i<c.length(); i=i+2){
-                    this.cornerAdj =this.cornerAdj + "("+num2ltr(c.substring(i,i+1))+","+c.substring(i+1,i+2)+") ";
-                }
-                for(int i=0; i<n.length(); i=i+2){
-                    this.notAdj =this.notAdj + "("+num2ltr(n.substring(i,i+1))+","+n.substring(i+1,i+2)+") ";
-                }
-                break;
-                
-            case 6:
-                //Formats the 3 resulting strings of coordinates to look nicer
-                for(int i=0; i<e.length(); i=i+2){
-                    this.edgeAdj =this.edgeAdj + "("+num2ltr(e.substring(i,i+1))+", "+e.substring(i+1,i+2)+") ";
-                }
-                for(int i=0; i<c.length(); i=i+2){
-                    this.cornerAdj =this.cornerAdj + "("+num2ltr(c.substring(i,i+1))+", "+c.substring(i+1,i+2)+") ";
-                }
-                for(int i=0; i<n.length(); i=i+2){
-                    this.notAdj =this.notAdj + "("+num2ltr(n.substring(i,i+1))+", "+n.substring(i+1,i+2)+") ";
-                }
-                break;
+        //Formats the 3 resulting strings of coordinates to look nicer
+        for(int i=0; i<e.length(); i=i+2){
+            this.edgeAdj =this.edgeAdj + "("+num2ltr(e.substring(i,i+1))+", "+e.substring(i+1,i+2)+") ";
+        }
+        for(int i=0; i<c.length(); i=i+2){
+            this.cornerAdj =this.cornerAdj + "("+num2ltr(c.substring(i,i+1))+", "+c.substring(i+1,i+2)+") ";
+        }
+        for(int i=0; i<n.length(); i=i+2){
+            this.notAdj =this.notAdj + "("+num2ltr(n.substring(i,i+1))+", "+n.substring(i+1,i+2)+") ";
         }
     }
 
-    Sqr(int col, int row, int len, String s){ //creates Sqr object from 2 numbers
-        String e = eAdj(col,row);
-        String c = cAdj(col,row);
+    JavaWU(String row, int col, Boolean len2){ //This constructor was included just to add a little bit of variation to the output
+        String e = eAdj(ltr2num(row),col);
+        String c = cAdj(ltr2num(row),col);
         String n = nAdj(e+c);
-        switch(len){
-            case 2:
-                for(int i=0; i<e.length(); i=i+2){
-                    this.edgeAdj =this.edgeAdj + "("+e.substring(i,i+1)+e.substring(i+1,i+2)+") ";
-                }
-                for(int i=0; i<c.length(); i=i+2){
-                    this.cornerAdj =this.cornerAdj + "("+c.substring(i,i+1)+c.substring(i+1,i+2)+") ";
-                }
-                for(int i=0; i<n.length(); i=i+2){
-                    this.notAdj =this.notAdj + "("+n.substring(i,i+1)+n.substring(i+1,i+2)+") ";
-                }
-                break;
-            
-            case 3:
-                for(int i=0; i<e.length(); i=i+2){
-                    this.edgeAdj =this.edgeAdj + "("+e.substring(i,i+1)+s+e.substring(i+1,i+2)+") ";
-                }
-                for(int i=0; i<c.length(); i=i+2){
-                    this.cornerAdj =this.cornerAdj + "("+c.substring(i,i+1)+s+c.substring(i+1,i+2)+") ";
-                }
-                for(int i=0; i<n.length(); i=i+2){
-                    this.notAdj =this.notAdj + "("+n.substring(i,i+1)+s+n.substring(i+1,i+2)+") ";
-                }
-                break;
-            case 5:
-                //Formats the 3 resulting strings of coordinates to look nicer
-                for(int i=0; i<e.length(); i=i+2){
-                    this.edgeAdj =this.edgeAdj + "("+e.substring(i,i+1)+","+e.substring(i+1,i+2)+") ";
-                }
-                for(int i=0; i<c.length(); i=i+2){
-                    this.cornerAdj =this.cornerAdj + "("+c.substring(i,i+1)+","+c.substring(i+1,i+2)+") ";
-                }
-                for(int i=0; i<n.length(); i=i+2){
-                    this.notAdj =this.notAdj + "("+n.substring(i,i+1)+","+n.substring(i+1,i+2)+") ";
-                }
-                break;
-                
-            case 6:
-                //Formats the 3 resulting strings of coordinates to look nicer
-                for(int i=0; i<e.length(); i=i+2){
-                    this.edgeAdj =this.edgeAdj + "("+e.substring(i,i+1)+", "+e.substring(i+1,i+2)+") ";
-                }
-                for(int i=0; i<c.length(); i=i+2){
-                    this.cornerAdj =this.cornerAdj + "("+c.substring(i,i+1)+", "+c.substring(i+1,i+2)+") ";
-                }
-                for(int i=0; i<n.length(); i=i+2){
-                    this.notAdj =this.notAdj + "("+n.substring(i,i+1)+", "+n.substring(i+1,i+2)+") ";
-                }
-                break;
+
+        //Formats the 3 resulting strings of coordinates to look nicer
+        for(int i=0; i<e.length(); i=i+2){
+            this.edgeAdj =this.edgeAdj + "("+num2ltr(e.substring(i,i+1))+e.substring(i+1,i+2)+") ";
+        }
+        for(int i=0; i<c.length(); i=i+2){
+            this.cornerAdj =this.cornerAdj + "("+num2ltr(c.substring(i,i+1))+c.substring(i+1,i+2)+") ";
+        }
+        for(int i=0; i<n.length(); i=i+2){
+            this.notAdj =this.notAdj + "("+num2ltr(n.substring(i,i+1))+n.substring(i+1,i+2)+") ";
+        }
+    }
+
+    JavaWU(int row, int col){ //creates JavaWU object from 2 numbers
+        String e = eAdj(row,col);
+        String c = cAdj(row,col);
+        String n = nAdj(e+c);
+
+        //Formats the 3 resulting strings of coordinates to look nicer
+        for(int i=0; i<e.length(); i=i+2){
+            this.edgeAdj =this.edgeAdj + "("+e.substring(i,i+1)+", "+e.substring(i+1,i+2)+") ";
+        }
+        for(int i=0; i<c.length(); i=i+2){
+            this.cornerAdj =this.cornerAdj + "("+c.substring(i,i+1)+", "+c.substring(i+1,i+2)+") ";
+        }
+        for(int i=0; i<n.length(); i=i+2){
+            this.notAdj =this.notAdj + "("+n.substring(i,i+1)+", "+n.substring(i+1,i+2)+") ";
         }
     }
 
@@ -236,23 +174,19 @@ class Sqr{
         }
         return nAdj;
     }
-
-}
-
-public class JavaWarmup{    
+    
     public static void main(String[] args){
         String exit = "n"; 
         Scanner scnr = new Scanner(System.in);
-        while(!exit.equals("y")){ //While loop to continue inputting different values until satisfied
-            System.out.print("Enter square coordinates: ");
-            String sqr = scnr.nextLine();
-
+        System.out.print("Enter square coordinates or 'x' to exit: ");
+        String sqr = scnr.nextLine();
+        while(!sqr.equals("x")){ //While loop to continue inputting different values until satisfied
             //Program uses the length of input to determine the which constructor is likely to be used
-            if(sqr.length()>=5){ 
+            if(sqr.length()==6){ //Length of 6 can only mean there are no letters involved
                 if(Character.isDigit(sqr.charAt(1))){ //I added this little check just to expand on the possible inputs it could handle
-                    int col = Integer.parseInt(sqr.substring(1,2));
-                    int row = Integer.parseInt(sqr.substring(sqr.length()-2,sqr.length()-1));
-                    Sqr shot = new Sqr(row,col,sqr.length(), ""); //Creates sqr object
+                    int row = Integer.parseInt(sqr.substring(1,2));
+                    int col = Integer.parseInt(sqr.substring(4,5));
+                    JavaWU shot = new JavaWU(row,col); //Creates sqr object
                     
                     //Displays the values
                     System.out.println("\nSquare coordinates: "+sqr);
@@ -260,11 +194,11 @@ public class JavaWarmup{
                     System.out.println("\nCorner-adjacent squares: " + shot.cornerAdj);
                     System.out.println("\nNon-adjacent square: " + shot.notAdj);
                 }
-                else{ //If col coordinate is a letter
+                else{ //If row coordinate is a letter
                     //stores values as a string and an int instead of 2 ints
-                    String col = sqr.substring(1,2);
-                    int row = Integer.parseInt(sqr.substring(sqr.length()-2,sqr.length()-1));
-                    Sqr shot = new Sqr(col,row,sqr.length(),"");
+                    String row = sqr.substring(1,2);
+                    int col = Integer.parseInt(sqr.substring(4,5));
+                    JavaWU shot = new JavaWU(row,col);
 
                     //Displays the values
                     System.out.println("\nSquare coordinates: "+sqr);
@@ -276,23 +210,23 @@ public class JavaWarmup{
             else if(sqr.length()==3){ //Length of 3 could have various different possibilities
                 //Example: f 5  5 5  5,5
                 if(Character.isDigit(sqr.charAt(0))){ //checks if row index is a number
-                    int col = Integer.parseInt(sqr.substring(0,1));
-                    int row = Integer.parseInt(sqr.substring(2));
-                    Sqr shot = new Sqr(row,col,sqr.length(),sqr.substring(1,2));
+                    int row = Integer.parseInt(sqr.substring(0,1));
+                    int col = Integer.parseInt(sqr.substring(2));
+                    JavaWU shot = new JavaWU(row,col);
 
                     //Displays the values
-                    System.out.println("\nSquare coordinates: "+sqr);
+                    System.out.println("\nSquare coordinates: ("+sqr+")");
                     System.out.println("\nEdge-adjacent squares: " + shot.edgeAdj);
                     System.out.println("\nCorner-adjacent squares: " + shot.cornerAdj);
                     System.out.println("\nNon-adjacent square: " + shot.notAdj);
                 }
                 else{
-                    String col = sqr.substring(0,1);
-                    int row = Integer.parseInt(sqr.substring(2));
-                    Sqr shot = new Sqr(col,row, sqr.length(),sqr.substring(1,2));
+                    String row = sqr.substring(0,1);
+                    int col = Integer.parseInt(sqr.substring(2));
+                    JavaWU shot = new JavaWU(row,col);
 
                     //Displays the values
-                    System.out.println("\nSquare coordinates: "+sqr);
+                    System.out.println("\nSquare coordinates: ("+sqr+")");
                     System.out.println("\nEdge-adjacent squares: " + shot.edgeAdj);
                     System.out.println("\nCorner-adjacent squares: " + shot.cornerAdj);
                     System.out.println("\nNon-adjacent square: " + shot.notAdj);
@@ -300,20 +234,21 @@ public class JavaWarmup{
             }
             else{ //Length of 2 had only 1 possibility
                 //row is a letter and col is a number
-                String col = sqr.substring(0,1);
-                int row = Integer.parseInt(sqr.substring(1));
-                Sqr shot = new Sqr(col,row,sqr.length(),"");
+                String row = sqr.substring(0,1);
+                int col = Integer.parseInt(sqr.substring(1));
+                JavaWU shot = new JavaWU(row,col,true);
 
                 //Displays the values
-                System.out.println("\nSquare coordinates: "+sqr);
+                System.out.println("\nSquare coordinates: ("+sqr+")");
                 System.out.println("\nEdge-adjacent squares: " + shot.edgeAdj);
                 System.out.println("\nCorner-adjacent squares: " + shot.cornerAdj);
                 System.out.println("\nNon-adjacent square: " + shot.notAdj);
             }
             
             //Checks if user wants to exit the program or input other values
-            System.out.println("--------------------------------------------------------------------------------------------------------------\n\nExit program? (y/n): ");
-            exit=scnr.nextLine();
+            System.out.println("----------------------------------------------------------------------------------\n\n");
+            System.out.print("Enter square coordinates or 'x' to exit: ");
+            sqr = scnr.nextLine();    
         }
         System.out.println("Have a nice day! Goodbye :)"); 
         scnr.close();
