@@ -1,0 +1,4 @@
+# Facebooks Most Influential 
+The purpose of this program is to determine the most influetial persone given a real-world dataset that contains information about annonymized facebook friendship relationships. To achieve this I implemented 2 different types of algorithms, one based on simulation (Random Walk) and one based on iterative probabilistic computations. To test the program I used the ﬁle facebook_combined.txt which contains two integers per line, representing the source and destination vertices in an undirected graph.
+
+**Implementations for Adjacency List Graphs, Adjacency Matrix Graphs and Hash Tables were provided by Dr. Olac Fuentes of The University of Texas at El Paso Computer Science Department.**

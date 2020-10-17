@@ -3,6 +3,6 @@ The purpose of this program is to perform elementary analysis of text documents 
 
 To test your program, I used a set of abstracts obtained from the scientiﬁc literature in neuroscience. The stop words are in the stop_words.txt file.
 
-**A hash table implememntation provided by Dr. Olac Fuentes was used for the purpose of this program.**
+**The implememntation of Hash Tables was provided by Dr. Olac Fuentes of The University of Texas at El Paso Computer Science Department.**
 
  
